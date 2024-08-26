@@ -7,6 +7,7 @@ test/
 src/
 
 # ignore configs
+.github/
 .luarc.json
 eslint.config.{js,mjs,cjs}
 tsconfig.json
