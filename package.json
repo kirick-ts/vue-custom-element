@@ -1,23 +1,16 @@
 {
 	"name": "@kirick/vue-custom-element",
-	"version": "0.1.0-beta.3",
+	"version": "3.4.38-beta.1",
 	"description": "",
 	"publishConfig": {
 		"access": "public"
 	},
 	"type": "module",
-	"main": "dist/esm/main.js",
-	"types": "dist/esm/main.d.ts",
-	"exports": {
-		".": {
-			"import": "./dist/esm/main.js",
-			"require": "./dist/main.cjs"
-		}
+	"main": "dist/main.js",
+	"types": "dist/main.d.ts",
+	"dependencies": {
+		"vue": "3.4.38"
 	},
-	"engines": {
-		"node": ">=14"
-	},
-	"dependencies": { "vue": "^3.4.38" },
 	"devDependencies": {
 		"@kirick/eslint-config": "latest",
 		"eslint": "9.8.0",
