@@ -25,3 +25,18 @@ export class VueCustomElement extends HTMLElement {
         });
     }
 }
+/**
+ * Defines a custom element.
+ * @param tag_name Custom element tag name.
+ * @param VueCustomElementClass Copper component class.
+ * @param [css] CSS code.
+ */
+export function defineElement(tag_name, VueCustomElementClass, css) {
+    if (typeof css === 'string') {
+        const element = document.createElement('style');
+        element.dataset.element = tag_name;
+        element.textContent = css;
+        document.head.append(element);
+    }
+    window.customElements.define(tag_name, VueCustomElementClass);
+}
