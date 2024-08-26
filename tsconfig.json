@@ -1,0 +1,28 @@
+{
+	"compileOnSave": false,
+	"include": [
+		"src/"
+	],
+	"exclude": [
+		"dist/",
+		"node_modules/"
+	],
+	"compilerOptions": {
+		"outDir": "dist",
+		"declaration": true,
+		"declarationDir": "dist",
+		"target": "esnext",
+		"module": "esnext",
+		"lib": [
+			"ESNext",
+			"ES2021.String",
+			"DOM",
+			"WebWorker"
+		],
+		"moduleResolution": "node",
+		"allowSyntheticDefaultImports": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"removeComments": false
+	}
+}

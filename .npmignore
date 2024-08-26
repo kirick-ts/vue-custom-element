@@ -1,0 +1,16 @@
+# ignore tests
+**/*.test.*
+**/*.test.d.ts
+test/
+
+# ignore source files of the Typescript project
+src/
+
+# ignore configs
+.luarc.json
+eslint.config.{js,mjs,cjs}
+tsconfig.json
+
+# ignore IDE files
+.idea
+.nova
