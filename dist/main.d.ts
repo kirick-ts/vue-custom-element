@@ -1,4 +1,4 @@
-import { type App, type Component } from 'vue';
+import { type App, type Component } from '@vue/runtime-dom';
 export declare class VueCustomElement extends HTMLElement {
     #private;
     component: Component;

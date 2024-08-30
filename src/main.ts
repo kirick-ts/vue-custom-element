@@ -2,7 +2,8 @@ import {
 	createApp,
 	type App,
 	type Component,
-} from 'vue';
+// eslint-disable-next-line vue/prefer-import-from-vue
+} from '@vue/runtime-dom';
 
 export class VueCustomElement extends HTMLElement {
 	component: Component = {};
@@ -11,7 +12,12 @@ export class VueCustomElement extends HTMLElement {
 	constructor() {
 		super();
 
-		this.app = createApp(this.component);
+		this.app = createApp(
+			this.component,
+			{
+				$webcomponent: this,
+			},
+		);
 	}
 
 	#is_disconnected_in_microtask = false;
@@ -47,7 +53,7 @@ export class VueCustomElement extends HTMLElement {
 export function defineElement(
 	tag_name: string,
 	VueCustomElementClass: typeof VueCustomElement,
-	css?: string
+	css?: string,
 ) {
 	if (typeof css === 'string') {
 		const element = document.createElement('style');

@@ -1,10 +1,14 @@
-import { createApp, } from 'vue';
+import { createApp,
+// eslint-disable-next-line vue/prefer-import-from-vue
+ } from '@vue/runtime-dom';
 export class VueCustomElement extends HTMLElement {
     component = {};
     app;
     constructor() {
         super();
-        this.app = createApp(this.component);
+        this.app = createApp(this.component, {
+            $webcomponent: this,
+        });
     }
     #is_disconnected_in_microtask = false;
     connectedCallback() {
