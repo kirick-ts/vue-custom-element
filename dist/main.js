@@ -1,12 +1,17 @@
-import { createApp, } from 'vue';
+import { createApp,
+// type Component,
+ } from 'vue';
 export class VueCustomElement extends HTMLElement {
     app;
     constructor(component) {
         super();
         this.innerHTML = '';
-        this.app = createApp(component, {
-            customElement: this,
-        });
+        const props_data = {};
+        if (component.props
+            && 'customElement' in component.props) {
+            props_data.customElement = this;
+        }
+        this.app = createApp(component, props_data);
     }
     #is_disconnected_in_microtask = false;
     connectedCallback() {

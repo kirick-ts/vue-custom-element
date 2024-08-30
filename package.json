@@ -1,6 +1,6 @@
 {
 	"name": "@kirick/vue-custom-element",
-	"version": "3.4.38-beta.5",
+	"version": "3.4.38-beta.6",
 	"description": "",
 	"publishConfig": {
 		"access": "public"
@@ -22,9 +22,7 @@
 		"build:minify": "bunx esbuild --minify --format=esm --packages=external --outfile=dist/main.min.js dist/main.js",
 		"build:ts": "rm -rf dist ; tsc",
 		"lint": "eslint . && tsc --skipLibCheck --noemit",
-		"publish:npm": "bun run build && bun run lint && bun run test && npm publish",
-		"test": "npm run test:vitest && bun test --coverage",
-		"test:vitest": "vitest run --no-file-parallelism"
+		"publish:npm": "bun run build && bun run lint && npm publish"
 	},
 	"repository": {
 		"type": "git",

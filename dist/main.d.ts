@@ -1,4 +1,8 @@
-import { type App, type Component } from 'vue';
+import { type App } from 'vue';
+interface Component {
+    name: string;
+    props: Record<string, unknown> | undefined;
+}
 export declare class VueCustomElement extends HTMLElement {
     #private;
     app: App<Element>;
@@ -13,3 +17,4 @@ export declare class VueCustomElement extends HTMLElement {
  * @param [css] CSS code.
  */
 export declare function defineElement(tag_name: string, VueCustomElementClass: typeof VueCustomElement, css?: string): void;
+export {};
