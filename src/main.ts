@@ -1,8 +1,13 @@
 import {
 	createApp,
 	type App,
-	type Component,
+	// type Component,
 } from 'vue';
+
+interface Component {
+	name: string;
+	props: Record<string, unknown> | undefined;
+}
 
 export class VueCustomElement extends HTMLElement {
 	app: App<Element>;
@@ -12,11 +17,17 @@ export class VueCustomElement extends HTMLElement {
 
 		this.innerHTML = '';
 
+		const props_data: Record<string, unknown> = {};
+		if (
+			component.props
+			&& 'customElement' in component.props
+		) {
+			props_data.customElement = this;
+		}
+
 		this.app = createApp(
 			component,
-			{
-				customElement: this,
-			},
+			props_data,
 		);
 	}
 
