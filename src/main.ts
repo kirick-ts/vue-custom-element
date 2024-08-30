@@ -2,8 +2,7 @@ import {
 	createApp,
 	type App,
 	type Component,
-// eslint-disable-next-line vue/prefer-import-from-vue
-} from '@vue/runtime-dom';
+} from 'vue';
 
 export class VueCustomElement extends HTMLElement {
 	component: Component = {};
@@ -11,6 +10,8 @@ export class VueCustomElement extends HTMLElement {
 
 	constructor() {
 		super();
+
+		this.innerHTML = '';
 
 		this.app = createApp(
 			this.component,

@@ -1,11 +1,10 @@
-import { createApp,
-// eslint-disable-next-line vue/prefer-import-from-vue
- } from '@vue/runtime-dom';
+import { createApp, } from 'vue';
 export class VueCustomElement extends HTMLElement {
     component = {};
     app;
     constructor() {
         super();
+        this.innerHTML = '';
         this.app = createApp(this.component, {
             $webcomponent: this,
         });
