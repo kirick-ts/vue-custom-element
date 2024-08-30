@@ -5,18 +5,17 @@ import {
 } from 'vue';
 
 export class VueCustomElement extends HTMLElement {
-	component: Component = {};
 	app: App<Element>;
 
-	constructor() {
+	constructor(component: Component) {
 		super();
 
 		this.innerHTML = '';
 
 		this.app = createApp(
-			this.component,
+			component,
 			{
-				$webcomponent: this,
+				customElement: this,
 			},
 		);
 	}

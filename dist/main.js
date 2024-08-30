@@ -1,12 +1,11 @@
 import { createApp, } from 'vue';
 export class VueCustomElement extends HTMLElement {
-    component = {};
     app;
-    constructor() {
+    constructor(component) {
         super();
         this.innerHTML = '';
-        this.app = createApp(this.component, {
-            $webcomponent: this,
+        this.app = createApp(component, {
+            customElement: this,
         });
     }
     #is_disconnected_in_microtask = false;
