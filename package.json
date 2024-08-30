@@ -1,6 +1,6 @@
 {
 	"name": "@kirick/vue-custom-element",
-	"version": "3.4.38-beta.6",
+	"version": "3.4.38-beta.7",
 	"description": "",
 	"publishConfig": {
 		"access": "public"
