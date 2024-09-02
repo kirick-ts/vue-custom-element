@@ -6,7 +6,7 @@ interface Component {
 export declare class VueCustomElement extends HTMLElement {
     #private;
     app: App<Element>;
-    constructor(component: Component);
+    constructor(component: Component, props_data?: Record<string, unknown>);
     connectedCallback(): void;
     disconnectedCallback(): void;
 }

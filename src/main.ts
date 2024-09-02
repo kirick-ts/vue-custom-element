@@ -12,22 +12,47 @@ interface Component {
 export class VueCustomElement extends HTMLElement {
 	app: App<Element>;
 
-	constructor(component: Component) {
+	constructor(
+		component: Component,
+		props_data: Record<string, unknown> = {},
+	) {
 		super();
 
 		this.innerHTML = '';
 
-		const props_data: Record<string, unknown> = {};
-		if (
-			component.props
-			&& 'customElement' in component.props
-		) {
-			props_data.customElement = this;
+		const props_data_attrs: Record<string, unknown> = {};
+
+		if (component.props) {
+			if ('customElement' in component.props) {
+				props_data.customElement = this;
+			}
+
+			for (
+				let index = 0;
+				index < this.attributes.length;
+				index++
+			) {
+				const {
+					name,
+					value,
+				} = this.attributes[index];
+
+				if (
+					name !== 'class'
+					&& name !== 'style'
+					&& name in component.props
+				) {
+					props_data_attrs[name] = value;
+				}
+			}
 		}
 
 		this.app = createApp(
 			component,
-			props_data,
+			{
+				...props_data_attrs,
+				...props_data,
+			},
 		);
 	}
 
