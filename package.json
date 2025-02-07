@@ -1,7 +1,7 @@
 {
 	"name": "@kirick/vue-custom-element",
-	"version": "3.4.38-beta.8",
-	"description": "",
+	"version": "1.0.0",
+	"description": "Wrapper for Vue components to mpunt them as Custom Elements.",
 	"publishConfig": {
 		"access": "public"
 	},
