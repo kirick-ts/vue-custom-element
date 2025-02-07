@@ -1,6 +1,6 @@
 {
 	"name": "@kirick/vue-custom-element",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Wrapper for Vue components to mpunt them as Custom Elements.",
 	"publishConfig": {
 		"access": "public"
