@@ -8,8 +8,8 @@
 	"type": "module",
 	"main": "dist/main.js",
 	"types": "dist/main.d.ts",
-	"dependencies": {
-		"vue": "3.4.38"
+	"peerDependencies": {
+		"vue": "^3.4.38"
 	},
 	"devDependencies": {
 		"@kirick/eslint-config": "latest",
