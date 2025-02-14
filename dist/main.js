@@ -12,7 +12,11 @@ export class VueCustomElement extends HTMLElement {
                 props_data.customElement = this;
             }
             for (let index = 0; index < this.attributes.length; index++) {
-                const { name, value, } = this.attributes[index];
+                let { name, value, } = this.attributes[index];
+                if (name.endsWith('.json')) {
+                    name = name.slice(0, -5);
+                    value = JSON.parse(value);
+                }
                 if (name !== 'class'
                     && name !== 'style'
                     && name in component.props) {

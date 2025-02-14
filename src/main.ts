@@ -32,10 +32,15 @@ export class VueCustomElement extends HTMLElement {
 				index < this.attributes.length;
 				index++
 			) {
-				const {
+				let {
 					name,
 					value,
 				} = this.attributes[index];
+
+				if (name.endsWith('.json')) {
+					name = name.slice(0, -5);
+					value = JSON.parse(value);
+				}
 
 				if (
 					name !== 'class'
