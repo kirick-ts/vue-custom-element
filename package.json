@@ -27,7 +27,7 @@
 	},
 	"scripts": {
 		"build": "tsdown src/main.ts --publint --unused --dts --format esm",
-		"check": "bun run build && bun run lint",
+		"check": "bun run lint && bun run build",
 		"lint": "eslint . && tsc"
 	},
 	"repository": {
