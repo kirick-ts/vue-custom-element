@@ -27,16 +27,10 @@ export class VueCustomElement extends HTMLElement {
 				props_data.customElement = this;
 			}
 
-			for (
-				let index = 0;
-				index < this.attributes.length;
-				index++
-			) {
-				let {
-					name,
-					value,
-				} = this.attributes[index];
-
+			for (let {
+				name,
+				value,
+			} of this.attributes) {
 				if (name.endsWith('.json')) {
 					name = name.slice(0, -5);
 					value = JSON.parse(value);
@@ -63,7 +57,7 @@ export class VueCustomElement extends HTMLElement {
 
 	#is_disconnected_in_microtask = false;
 
-	connectedCallback() {
+	connectedCallback(): void {
 		if (this.#is_disconnected_in_microtask === true) {
 			this.#is_disconnected_in_microtask = false;
 		}
@@ -72,7 +66,7 @@ export class VueCustomElement extends HTMLElement {
 		}
 	}
 
-	disconnectedCallback() {
+	disconnectedCallback(): void {
 		this.#is_disconnected_in_microtask = true;
 
 		queueMicrotask(() => {
@@ -95,13 +89,15 @@ export function defineElement(
 	tag_name: string,
 	VueCustomElementClass: typeof VueCustomElement,
 	css?: string,
-) {
+): void {
+	const element = document.createElement('style');
+	element.dataset.element = tag_name;
+	element.textContent = `${tag_name}{display:contents;}`;
 	if (typeof css === 'string') {
-		const element = document.createElement('style');
-		element.dataset.element = tag_name;
-		element.textContent = css;
-		document.head.append(element);
+		element.textContent += `\n${css}`;
 	}
+
+	document.head.append(element);
 
 	window.customElements.define(
 		tag_name,

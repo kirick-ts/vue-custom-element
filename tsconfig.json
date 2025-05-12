@@ -1,28 +1,31 @@
 {
-	"compileOnSave": false,
+	"compilerOptions": {
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"target": "es2022",
+		"moduleDetection": "force",
+		"isolatedModules": true,
+		"verbatimModuleSyntax": true,
+		"strict": true,
+		"noUncheckedIndexedAccess": true,
+		"noImplicitOverride": true,
+		"module": "preserve",
+		"noEmit": true,
+		"lib": [
+			"es2022",
+			"dom",
+			"dom.iterable"
+		],
+		"declaration": true,
+		"isolatedDeclarations": true
+	},
 	"include": [
 		"src/"
 	],
 	"exclude": [
 		"dist/",
-		"node_modules/"
-	],
-	"compilerOptions": {
-		"outDir": "dist",
-		"declaration": true,
-		"declarationDir": "dist",
-		"target": "esnext",
-		"module": "esnext",
-		"lib": [
-			"ESNext",
-			"ES2021.String",
-			"DOM",
-			"WebWorker"
-		],
-		"moduleResolution": "node",
-		"allowSyntheticDefaultImports": true,
-		"skipLibCheck": true,
-		"strict": true,
-		"removeComments": false
-	}
+		"node_modules/",
+		"test/",
+		"**/*.test.*"
+	]
 }
