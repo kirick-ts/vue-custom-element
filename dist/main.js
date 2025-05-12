@@ -42,12 +42,11 @@ var VueCustomElement = class extends HTMLElement {
 * @param [css] CSS code.
 */
 function defineElement(tag_name, VueCustomElementClass, css) {
-	if (typeof css === "string") {
-		const element = document.createElement("style");
-		element.dataset.element = tag_name;
-		element.textContent = css;
-		document.head.append(element);
-	}
+	const element = document.createElement("style");
+	element.dataset.element = tag_name;
+	element.textContent = `${tag_name}{display:contents;}`;
+	if (typeof css === "string") element.textContent += `\n${css}`;
+	document.head.append(element);
 	window.customElements.define(tag_name, VueCustomElementClass);
 }
 
